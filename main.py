@@ -19,7 +19,22 @@ def generate_password(max):
     return password
 
 def store_password(name, password):
+    f = open("password.txt", "a")
+    f.write(name + ", " + password + "\n")
+    f.close()
+    
+
+def open_passwords():
+    f = open("password.txt", "r")
+    passwords = {}
+    for line in f: 
+        hi = line.split(", ")
+        passwords[hi[0]] = hi[1]
+    
+
+def main():
     
 
 
-        
+print(store_password("ngrgrg", "kekignrgnrejg"))
+print(open_passwords())
