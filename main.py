@@ -30,11 +30,19 @@ def open_passwords():
     for line in f: 
         hi = line.split(", ")
         passwords[hi[0]] = hi[1]
+    return passwords
     
 
 def main():
-    
+    max= int(input("How many character would you like your password? "))
+    new_password = generate_password(max)
+    print(new_password)
+    name = input("What was this password for? (Give exact name) ")
+    store_password(name, new_password)
+
+    list_passwords = open_passwords()
+    find_password = input("What password would you like to look for? " )
+    print(list_passwords[find_password])
 
 
-print(store_password("ngrgrg", "kekignrgnrejg"))
-print(open_passwords())
+main()
